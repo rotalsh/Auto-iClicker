@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
-from setup import USERNAME, PASSWORD, CLASS_ORDER, CLASS_NAME
+from setup import USERNAME, PASSWORD, CLASS_NAME
 
 s = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=s)
