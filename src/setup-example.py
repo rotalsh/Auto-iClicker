@@ -1,3 +1,4 @@
 USERNAME = ""
 PASSWORD = ""
 CLASS_NAME = ""
+CLASS_URL = ""
