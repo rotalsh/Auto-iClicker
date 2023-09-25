@@ -1,24 +1,33 @@
-
 import time
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-# from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
+from setup import USERNAME, PASSWORD, CLASS_ORDER, CLASS_NAME
 
-s = Service('chromedriver.exe')
+s = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=s)
 
-driver = webdriver.Chrome(service=s)  # Optional argument, if not specified will search path.
-# driver = webdriver.Chrome(ChromeDriverManager().install())
+driver.get('https://student.iclicker.com/#/login');
 
-driver.get('http://www.google.com/');
+time.sleep(4) # Let the user actually see something!
 
-time.sleep(5) # Let the user actually see something!
+search = driver.find_element(By.ID, "userEmail")
+search.send_keys(USERNAME)
+search.submit()
 
-search_box = driver.find_element_by_name('q')
+search = driver.find_element(By.ID, "userPassword")
+search.send_keys(PASSWORD)
+search.submit()
 
-search_box.send_keys('ChromeDriver')
+search = driver.find_element(By.ID, "sign-in-button")
+search.click()
 
-search_box.submit()
+time.sleep(6)
+
+search = driver.find_element(By.XPATH, '//*[text()="'+CLASS_NAME+'"]').click()
 
 time.sleep(5) # Let the user actually see something!
 
