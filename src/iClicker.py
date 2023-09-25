@@ -12,7 +12,7 @@ driver = webdriver.Chrome(service=s)
 
 driver.get('https://student.iclicker.com/#/login');
 
-time.sleep(4) # Let the user actually see something!
+time.sleep(4) # Delay for the website to load
 
 search = driver.find_element(By.ID, "userEmail")
 search.send_keys(USERNAME)
@@ -25,10 +25,10 @@ search.submit()
 search = driver.find_element(By.ID, "sign-in-button")
 search.click()
 
-time.sleep(6)
+time.sleep(6) # Delay for the page to load
 
 search = driver.find_element(By.XPATH, '//*[text()="'+CLASS_NAME+'"]').click()
 
-time.sleep(5) # Let the user actually see something!
+time.sleep(5)
 
 driver.quit()
