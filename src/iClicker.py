@@ -29,6 +29,17 @@ time.sleep(6) # Delay for the page to load
 
 search = driver.find_element(By.XPATH, '//*[text()="'+CLASS_NAME+'"]').click()
 
+time.sleep(2) # Delay for the page to load
+
+try: 
+    search = driver.find_element(By.XPATH, '//*[@id="btnJoin"]').click()
+    time.sleep(5)
+
+except Exception as e:
+    print(e)
+    print("all good")
+
 time.sleep(5)
+
 
 driver.quit()
