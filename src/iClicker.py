@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from setup import USERNAME, PASSWORD, CLASS_NAME, CLASS_URL
+from setup import USERNAME, PASSWORD, CLASS_NAME, CLASS_URL, POLL_RATE, WAIT_JOIN
 
 s = Service(r"./chromedriver.exe")
 driver = webdriver.Chrome(service=s)
@@ -32,14 +32,14 @@ search = WebDriverWait(driver, 10).until(
 search.click()
 
 try: 
-    search = WebDriverWait(driver, 600).until( # 10 minute delay (600 seconds)
+    search = WebDriverWait(driver, WAIT_JOIN).until(
         EC.element_to_be_clickable((By.XPATH, '//*[@id="btnJoin"]')))
     search.click()
     time.sleep(7) # Delay
     while (driver.current_url != CLASS_URL):
         if (driver.current_url == 'https://student.iclicker.com/#/polling'):
             driver.find_element(By.XPATH, '//*[@id="multiple-choice-a"]').click()
-        time.sleep(10)                         # how often this refreshes to click a poll
+        time.sleep(POLL_RATE)
 
 
 except Exception as e:
