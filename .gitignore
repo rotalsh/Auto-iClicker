@@ -1,5 +1,5 @@
 .vscode
 __pycache__
-chromedriver.exe
+# chromedriver.exe
 setup.py
 original.py
