@@ -1,4 +1,4 @@
-USERNAME = "your-username"
+EMAIL = "your-email"
 PASSWORD = "your-password"
 CLASS_NAME = "class name (caps and space specific)"
 CLASS_URL = "copy + paste the class page url (right after you click the course, before join)"
