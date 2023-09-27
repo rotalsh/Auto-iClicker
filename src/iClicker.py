@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from setup import USERNAME, PASSWORD, CLASS_NAME, CLASS_URL, POLL_RATE, WAIT_JOIN
+from setup import EMAIL, PASSWORD, CLASS_NAME, CLASS_URL, POLL_RATE, WAIT_JOIN
 
 s = Service(r"./chromedriver.exe")
 driver = webdriver.Chrome(service=s)
@@ -17,7 +17,7 @@ time.sleep(4) # Delay for the website to load
 
 search = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.ID, "userEmail")))
-search.send_keys(USERNAME)
+search.send_keys(EMAIL)
 search.submit()
 
 search = driver.find_element(By.ID, "userPassword")
