@@ -13,9 +13,7 @@ driver = webdriver.Chrome(service=s)
 
 driver.get('https://student.iclicker.com/#/login');
 
-time.sleep(4) # Delay for the website to load
-
-search = WebDriverWait(driver, 10).until(
+search = WebDriverWait(driver, 15).until(
     EC.presence_of_element_located((By.ID, "userEmail")))
 search.send_keys(EMAIL)
 search.submit()
